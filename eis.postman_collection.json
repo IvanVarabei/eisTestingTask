@@ -1,0 +1,209 @@
+{
+	"variables": [],
+	"info": {
+		"name": "eis",
+		"_postman_id": "949985e8-5685-c367-99d2-db9d810e3875",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "person",
+			"description": "",
+			"item": [
+				{
+					"name": "createPersons",
+					"request": {
+						"url": "http://localhost:8080/api/v1/persons",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"ivan@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "findPersones",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8080/api/v1/persons?page=0&size=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"persons"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "size",
+									"value": "5",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "findPersonById",
+					"request": {
+						"url": "http://localhost:8080/api/v1/persons/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "findPropertiesByUserId",
+					"request": {
+						"url": "http://localhost:8080/api/v1/persons/1/properties",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "updatePerson",
+					"request": {
+						"url": "http://localhost:8080/api/v1/persons",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"email\": \"valera@gmail.com\",\n    \"propertyList\": [\n        {\n            \"id\": 1,\n            \"description\": \"BMW X5\"\n        },\n        {\n            \"id\": 2,\n            \"description\": \"House\"\n        },\n        {\n            \"description\": \"Tesla\"\n        }\n    ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "policy",
+			"description": "",
+			"item": [
+				{
+					"name": "createPolicy",
+					"request": {
+						"url": "http://localhost:8080/api/v1/policies",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"duration\": 1,\n    \"property\": {\n        \"id\": 2,\n        \"description\": \"House\"\n    },\n    \"coverageType\": \"COMPREHENSIVE\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "findPolicyById",
+					"request": {
+						"url": "http://localhost:8080/api/v1/policies/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "findPolicies",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8080/api/v1/policies?page=0&size=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"policies"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "size",
+									"value": "3",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "deletePolicy",
+					"request": {
+						"url": "http://localhost:8080/api/v1/policies/1",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
